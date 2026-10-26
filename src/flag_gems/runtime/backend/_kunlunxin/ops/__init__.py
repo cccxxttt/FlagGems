@@ -375,6 +375,7 @@ from .foreach_div import (  # noqa: F401
 from .foreach_erf import _foreach_erf, _foreach_erf_  # noqa: F401
 from .foreach_log1p import _foreach_log1p, _foreach_log1p_  # noqa: F401
 from .fractional_max_pool2d import fractional_max_pool2d, fractional_max_pool2d_backward
+from .frexp import frexp
 from .full import full
 from .full_like import full_like
 from .functional_assert_async import _functional_assert_async
@@ -781,7 +782,6 @@ from .stack import stack
 from .std import std
 from .sub import sub, sub_, subtract, subtract_
 from .sum import sum, sum_dim, sum_dim_out, sum_out
-from .sym_numel import sym_numel
 from .t_copy import t_copy, t_copy_out
 from .take import take, take_out
 from .take_along_dim import take_along_dim_kernel  # noqa: F401
@@ -1193,6 +1193,7 @@ __all__ = [
     "fmod_tensor_",
     "fractional_max_pool2d",
     "fractional_max_pool2d_backward",
+    "frexp",
     "full",
     "full_like",
     "fused_experts_impl",
@@ -1685,7 +1686,6 @@ __all__ = [
     "sum_dim_out",
     "sum_out",
     "SUPPORTED_FP8_DTYPE",
-    "sym_numel",
     "t_copy",
     "t_copy_out",
     "take",
