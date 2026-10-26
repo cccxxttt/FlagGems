@@ -112,6 +112,7 @@ _FULL_CONFIG = (
     ("__xor__.Scalar", xor_scalar),
     ("__xor__.Tensor", xor),
     ("_adaptive_avg_pool2d", adaptive_avg_pool2d),
+    ("_adaptive_avg_pool2d.out", adaptive_avg_pool2d_out),
     ("_adaptive_avg_pool2d_backward", _adaptive_avg_pool2d_backward),
     ("_adaptive_avg_pool3d", adaptive_avg_pool3d),
     ("_adaptive_avg_pool3d.out", adaptive_avg_pool3d_out),
@@ -402,6 +403,7 @@ _FULL_CONFIG = (
         and hasattr(torch.ops.aten._int_mm, "out"),
     ),
     ("_is_all_true", _is_all_true),
+    ("_is_any_true", _is_any_true),
     ("_jagged_to_padded_dense_forward", _jagged_to_padded_dense_forward),
     ("_linalg_det", _linalg_det),
     ("_linalg_eigh", _linalg_eigh),
@@ -588,6 +590,12 @@ _FULL_CONFIG = (
         None,
         (SPARSE_DISPATCH_KEY,),
     ),
+    (
+        "_sparse_mm_reduce_impl",
+        _sparse_mm_reduce_impl,
+        None,
+        (SPARSE_CSR_DISPATCH_KEY,),
+    ),
     ("_sparse_semi_structured_addmm", _sparse_semi_structured_addmm),
     (
         "_sparse_semi_structured_apply",
@@ -599,6 +607,7 @@ _FULL_CONFIG = (
     ),
     ("_sparse_semi_structured_linear", _sparse_semi_structured_linear),
     ("_sparse_semi_structured_mm", _sparse_semi_structured_mm),
+    ("_sparse_semi_structured_tile", _sparse_semi_structured_tile),
     (
         "_sparse_softmax",
         _sparse_softmax,
@@ -709,6 +718,7 @@ _FULL_CONFIG = (
         "_upsample_nearest_exact3d_backward.grad_input",
         _upsample_nearest_exact3d_backward_grad_input,
     ),
+    ("_validate_sparse_csc_tensor_args", _validate_sparse_csc_tensor_args),
     (
         "_values",
         values,
