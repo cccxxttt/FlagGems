@@ -390,6 +390,8 @@ _FULL_CONFIG = (
     ("_histogramdd_from_bin_tensors", _histogramdd_from_bin_tensors),
     ("_histogramdd_from_bin_tensors.out", _histogramdd_from_bin_tensors_out),
     ("_index_put_impl_", _index_put_impl_),
+    ("_indices_copy", _indices_copy, None, (AUTOGRAD_DISPATCH_KEY,)),
+    ("_indices_copy.out", _indices_copy_out, None, (AUTOGRAD_DISPATCH_KEY,)),
     (
         "_int_mm",
         int_mm,
@@ -560,6 +562,7 @@ _FULL_CONFIG = (
     ("_softmax_backward_data.out", softmax_backward_out),
     ("_sparse_broadcast_to", sparse_broadcast_to, None, (SPARSE_DISPATCH_KEY,)),
     ("_sparse_bsc_tensor_unsafe", sparse_bsc_tensor_unsafe),
+    ("_sparse_csc_tensor_unsafe", sparse_csc_tensor_unsafe),
     (
         "_sparse_mm_reduce_impl",
         _sparse_mm_reduce_impl,

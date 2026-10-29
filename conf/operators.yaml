@@ -196,6 +196,32 @@ ops:
   - NeuralNetwork
   stages:
   - alpha: '5.5'
+- id: _indices_copy
+  description: 'Returns a fresh non-aliasing copy of the coordinate (indices) tensor
+    of a sparse COO tensor, shaped (sparse_dim, nnz).
+
+    '
+  for:
+  - _indices_copy
+  labels:
+  - aten
+  - KernelGen
+  kind:
+  - Sparse
+  stages:
+  - alpha: '5.5'
+- id: _indices_copy_out
+  description: A variant of `_indices_copy()` that writes the indices copy into
+    the `out` tensor.
+  for:
+  - _indices_copy.out
+  labels:
+  - aten
+  - KernelGen
+  kind:
+  - Sparse
+  stages:
+  - alpha: '5.5'
 - id: _linalg_eigh
   description: Computes the eigenvalues and eigenvectors of a symmetric or Hermitian
     matrix.
@@ -18976,6 +19002,22 @@ primal value saved by `fw_primal` into the caller-supplied `out` buffer.
   for:
   - sparse_compressed_tensor.comp_plain_value
   - sparse_compressed_tensor.comp_plain_value_size
+  labels:
+  - aten
+  - KernelGen
+  kind:
+  - Tensor
+  stages:
+  - alpha: '5.5'
+- id: sparse_csc_tensor_unsafe
+  description: 'Assembles a torch.sparse_csc layout tensor from already-materialised
+    ccol/row indices and values without validating the compressed indices; the
+    payload dtype conversion requested via the dtype argument runs in a Triton
+    kernel before the native assembly.
+
+    '
+  for:
+  - _sparse_csc_tensor_unsafe
   labels:
   - aten
   - KernelGen
