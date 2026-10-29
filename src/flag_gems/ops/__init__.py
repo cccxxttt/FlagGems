@@ -277,6 +277,7 @@ from flag_gems.ops._histogramdd_from_bin_tensors import (
     _histogramdd_from_bin_tensors,
     _histogramdd_from_bin_tensors_out,
 )
+from flag_gems.ops._indices_copy import _indices_copy, _indices_copy_out
 from flag_gems.ops._is_all_true import _is_all_true
 from flag_gems.ops._is_any_true import _is_any_true
 from flag_gems.ops._jagged_to_padded_dense_forward import (
@@ -1380,6 +1381,7 @@ from flag_gems.ops.sparse_bsc_tensor import sparse_bsc_tensor
 from flag_gems.ops.sparse_bsr_tensor import sparse_bsr_tensor
 from flag_gems.ops.sparse_bsr_tensor_unsafe import sparse_bsr_tensor_unsafe
 from flag_gems.ops.sparse_compressed_tensor import sparse_compressed_tensor
+from flag_gems.ops.sparse_csc_tensor_unsafe import sparse_csc_tensor_unsafe
 from flag_gems.ops.sparse_dim import sparse_dim
 from flag_gems.ops.sparse_sampled_addmm import (
     sparse_sampled_addmm,
@@ -1884,6 +1886,8 @@ __all__ = [
     "_histogramdd_from_bin_tensors",
     "_histogramdd_from_bin_tensors_out",
     "_index_put_impl_",
+    "_indices_copy",
+    "_indices_copy_out",
     "_is_all_true",
     "_is_any_true",
     "_jagged_to_padded_dense_forward",
@@ -3035,6 +3039,7 @@ __all__ = [
     "sparse_bsr_tensor",
     "sparse_bsr_tensor_unsafe",
     "sparse_compressed_tensor",
+    "sparse_csc_tensor_unsafe",
     "sparse_dim",
     "sparse_sampled_addmm",
     "sparse_sampled_addmm_out",
