@@ -87,8 +87,8 @@ _FLOAT_DTYPES = _payload_dtypes(
     (torch.float64, utils.fp64_is_supported),
 )
 _FP8_DTYPES = _payload_dtypes(
-    (torch.float8_e4m3fn, utils.fp8_is_supported),
-    (torch.float8_e5m2, utils.fp8_is_supported),
+    (torch.float8_e4m3fn, tu.fp8_is_supported()),
+    (torch.float8_e5m2, tu.fp8_is_supported()),
 )
 
 # Every negative case constructs COO operands, so it shares the family's

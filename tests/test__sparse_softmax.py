@@ -41,13 +41,13 @@ _DEFAULT_FORM_DTYPES = [torch.float32] + (
 )
 _CONVERT_DTYPES = (
     [torch.int8, torch.uint8]
-    + ([torch.float8_e4m3fn, torch.float8_e5m2] if _DEVICE.support_fp8 else [])
+    + ([torch.float8_e4m3fn, torch.float8_e5m2] if tu.fp8_is_supported() else [])
     + [torch.int32]
     + ([torch.bfloat16] if _DEVICE.support_bf16 else [])
     + ([torch.int64] if _DEVICE.support_int64 else [])
 )
 _CONVERT_FLOAT_DTYPES = (
-    [torch.float8_e4m3fn, torch.float8_e5m2] if _DEVICE.support_fp8 else []
+    [torch.float8_e4m3fn, torch.float8_e5m2] if tu.fp8_is_supported() else []
 ) + ([torch.bfloat16] if _DEVICE.support_bf16 else [])
 _FP64_TARGET_DTYPES = list(_CONVERT_DTYPES) if _DEVICE.support_fp64 else []
 
@@ -61,7 +61,7 @@ _REJECTED_DTYPES = _NVIDIA_REJECTED_DTYPES if _IS_NVIDIA else []
 # FP8 inputs reach the default form's internal coalesce, which FP8 lacks on NVIDIA.
 _REJECTED_FP8_DTYPES = (
     [torch.float8_e4m3fn, torch.float8_e5m2]
-    if _IS_NVIDIA and _DEVICE.support_fp8
+    if _IS_NVIDIA and tu.fp8_is_supported()
     else []
 )
 _HALF_TO_FLOAT_REJECTED_DTYPES = list(_DEFAULT_FORM_DTYPES) if _IS_NVIDIA else []

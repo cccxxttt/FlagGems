@@ -30,6 +30,20 @@ import flag_gems
 
 from .conftest import QUICK_MODE
 
+
+def fp8_is_supported():
+    """fp8 dtypes only lower to Triton kernels on compute capability >= 8.9;
+    older CUDA parts (e.g. sm80) report the vendor flag but fail to compile."""
+    if not flag_gems.runtime.device.support_fp8:
+        return False
+    if flag_gems.vendor_name != "nvidia":
+        return True
+    try:
+        return torch.cuda.get_device_capability() >= (8, 9)
+    except Exception:
+        return False
+
+
 # ---------------------------------------------------------------------------
 # Mode selection
 # ---------------------------------------------------------------------------

@@ -38,8 +38,8 @@ _DTYPE_CONSTRUCTIBLE = {
     torch.bfloat16: utils.bf16_is_supported,
     torch.float64: utils.fp64_is_supported,
     torch.int64: utils.int64_is_supported,
-    torch.float8_e4m3fn: utils.fp8_is_supported,
-    torch.float8_e5m2: utils.fp8_is_supported,
+    torch.float8_e4m3fn: tu.fp8_is_supported(),
+    torch.float8_e5m2: tu.fp8_is_supported(),
 }
 
 

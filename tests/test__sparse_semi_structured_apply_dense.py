@@ -340,7 +340,7 @@ if utils.fp64_is_supported:
     _UNSUPPORTED_DTYPE_CANDIDATES.append(torch.float64)
 if utils.int64_is_supported:
     _UNSUPPORTED_DTYPE_CANDIDATES.append(torch.int64)
-if utils.fp8_is_supported:
+if tu.fp8_is_supported():
     _UNSUPPORTED_DTYPE_CANDIDATES.extend([torch.float8_e4m3fn, torch.float8_e5m2])
 
 # Rank 0 raises IndexError from the stride(0) query, rank 1 raises IndexError from

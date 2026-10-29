@@ -48,7 +48,7 @@ from . import kernelgen_test_utils as tu
 _SUPPORTS_BF16 = flag_gems.runtime.device.support_bf16
 _SUPPORTS_FP64 = flag_gems.runtime.device.support_fp64
 _SUPPORTS_INT64 = flag_gems.runtime.device.support_int64
-_SUPPORTS_FP8 = flag_gems.runtime.device.support_fp8
+_SUPPORTS_FP8 = tu.fp8_is_supported()
 
 # Native dispatch, probed on this backend with the real overload:
 #   * a dense grad (dim covers every sparse dim), and a sparse grad that keeps every
